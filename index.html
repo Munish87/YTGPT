@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YTGPT Thumbnail Maker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero">
+        <p class="badge">YTGPT • Thumbnail Studio</p>
+        <h1>Create YouTube Thumbnails in Minutes</h1>
+        <p class="subtitle">
+          Upload your face, a sketch, or an existing thumbnail idea and generate a
+          polished creator-ready visual.
+        </p>
+      </header>
+
+      <section class="workspace">
+        <aside class="controls panel">
+          <h2>Controls</h2>
+
+          <label class="control-group">
+            <span>AI Thumbnail Prompt</span>
+            <textarea id="aiPrompt" rows="3" placeholder="A shocked creator face, neon glow text, cinematic youtube thumbnail">A cat in a wizard hat</textarea>
+          </label>
+
+          <button id="generateAiBtn" type="button">Generate AI Background</button>
+          <p id="aiStatus" class="status">Ready to generate with Bytez + Imagen 4.0.</p>
+
+          <label class="control-group">
+            <span>Background / Sketch</span>
+            <input id="bgUpload" type="file" accept="image/*" />
+          </label>
+
+          <label class="control-group">
+            <span>Face Overlay</span>
+            <input id="faceUpload" type="file" accept="image/*" />
+          </label>
+
+          <label class="control-group">
+            <span>Headline</span>
+            <input id="titleText" type="text" value="THIS CHANGES EVERYTHING" maxlength="50" />
+          </label>
+
+          <label class="control-group">
+            <span>Text Color</span>
+            <input id="textColor" type="color" value="#ffe600" />
+          </label>
+
+          <label class="control-group">
+            <span>Face Size</span>
+            <input id="faceScale" type="range" min="0.1" max="1.4" value="0.55" step="0.01" />
+          </label>
+
+          <label class="control-group">
+            <span>Face X Position</span>
+            <input id="faceX" type="range" min="0" max="1280" value="930" step="1" />
+          </label>
+
+          <label class="control-group">
+            <span>Face Y Position</span>
+            <input id="faceY" type="range" min="0" max="720" value="420" step="1" />
+          </label>
+
+          <div class="button-row">
+            <button id="randomizeBtn" type="button">Generate Concept</button>
+            <button id="downloadBtn" type="button">Download PNG</button>
+          </div>
+        </aside>
+
+        <section class="preview panel">
+          <div class="canvas-wrap">
+            <canvas id="thumbnailCanvas" width="1280" height="720" aria-label="Thumbnail preview"></canvas>
+          </div>
+          <p class="hint">Preview updates live. Export in standard 1280×720 YouTube size.</p>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
